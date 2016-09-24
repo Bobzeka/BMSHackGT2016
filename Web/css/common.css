@@ -1,0 +1,52 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: black;
+}
+
+#title {
+  position: absolute;
+  width: 100vw;
+  top: 8vh;
+  text-align: center;
+  font-size: 15vh;
+  font-family: 'Lato', 'sans-serif';
+  color: white;
+}
+
+#button {
+  position: absolute;
+  color: white;
+  font-size: 3vh;
+  left: calc(50vw - 7.5vh);
+  padding: 1vh 2vw;
+  border-radius: .4vh;
+  background-color: #4885ed;
+  bottom: 10vh;
+  font-family: 'Roboto','sans-serif';
+}
+
+#map {
+  position: absolute;
+  top: 100vh;
+  height: 100vh;
+  width: 100vw;
+}
+
+#floating-panel {
+  position: absolute;
+  left: 25vw;
+  width: 50vw;
+  z-index: 5;
+  text-align: center;
+  font-family: 'Roboto','sans-serif';
+  line-height: 30px;
+}
+
+#floating-panel {
+  top: 100vh;
+  left: 25%;
+  position: absolute;
+  z-index: 5;
+}
