@@ -1,0 +1,43 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: black;
+}
+
+#title {
+  margin-top: 10vh;
+  text-align: center;
+  font-size: 5vh;
+  font-family: 'Lato', sans-serif;
+  color: white;
+}
+
+#map {
+  margin-top: 20vh;
+  height: 70%;
+  width: 70%;
+}
+
+#floating-panel {
+  position: absolute;
+  top: 10px;
+  left: 25%;
+  z-index: 5;
+  background-color: #fff;
+  padding: 5px;
+  text-align: center;
+  font-family: 'Roboto','sans-serif';
+  line-height: 30px;
+  padding-left: 10px;
+}
+
+#floating-panel {
+  background-color: #fff;
+  border: 1px solid #999;
+  left: 25%;
+  padding: 5px;
+  position: absolute;
+  top: 10px;
+  z-index: 5;
+}
