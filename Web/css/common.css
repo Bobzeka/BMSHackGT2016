@@ -6,38 +6,47 @@ html, body {
 }
 
 #title {
-  margin-top: 10vh;
+  position: absolute;
+  width: 100vw;
+  top: 8vh;
   text-align: center;
-  font-size: 5vh;
-  font-family: 'Lato', sans-serif;
+  font-size: 15vh;
+  font-family: 'Lato', 'sans-serif';
   color: white;
 }
 
+#button {
+  position: absolute;
+  color: white;
+  font-size: 3vh;
+  left: calc(50vw - 7.5vh);
+  padding: 1vh 2vw;
+  border-radius: .4vh;
+  background-color: #4885ed;
+  bottom: 10vh;
+  font-family: 'Roboto','sans-serif';
+}
+
 #map {
-  margin-top: 20vh;
-  height: 70%;
-  width: 70%;
+  position: absolute;
+  top: 100vh;
+  height: 100vh;
+  width: 100vw;
 }
 
 #floating-panel {
   position: absolute;
-  top: 10px;
-  left: 25%;
+  left: 25vw;
+  width: 50vw;
   z-index: 5;
-  background-color: #fff;
-  padding: 5px;
   text-align: center;
   font-family: 'Roboto','sans-serif';
   line-height: 30px;
-  padding-left: 10px;
 }
 
 #floating-panel {
-  background-color: #fff;
-  border: 1px solid #999;
+  top: 100vh;
   left: 25%;
-  padding: 5px;
   position: absolute;
-  top: 10px;
   z-index: 5;
 }
