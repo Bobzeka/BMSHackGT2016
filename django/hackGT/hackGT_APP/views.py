@@ -4,11 +4,15 @@ import urllib2
 import json
 import oauth2
 import os
+import tweepy
+import inspect
 
 CONSUMER_KEY = os.environ['CONSUMER_KEY']
 CONSUMER_SECRET = os.environ['CONSUMER_SECRET']
 ACCESS_TOKEN = os.environ['ACCESS_TOKEN']
 ACCESS_SECRET = os.environ['ACCESS_SECRET']
+
+stream_created = False
 
 def oauth_req(url, http_method="GET", post_body="", http_headers=None):
     consumer = oauth2.Consumer(key=CONSUMER_KEY, secret=CONSUMER_SECRET)
@@ -17,12 +21,23 @@ def oauth_req(url, http_method="GET", post_body="", http_headers=None):
     esp, content = client.request( url, method=http_method, body=post_body, headers=http_headers )
     return content
 
+class MyStreamListener(tweepy.StreamListener):
+    def on_status(self, status):
+        for property, value in vars(status).iteritems():
+            print property, ": ", value
+
+
 
 def maps(request):
-    req = oauth_req('https://api.twitter.com/1.1/account/verify_credentials.json')
-    data = json.loads(req)
+    auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
+    auth.set_access_token(ACCESS_TOKEN, ACCESS_SECRET)
 
-    print data
+    api = tweepy.API(auth)
 
-    return HttpResponse(req)
+    myStreamListener = MyStreamListener()
+    myStream = tweepy.Stream(auth = api.auth, listener=MyStreamListener())
+
+    myStream.filter(track=['drugs', 'twisted', 'dope'], async=True)
+
+    return HttpResponse("testing")
 
