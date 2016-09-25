@@ -7,7 +7,7 @@ class machineLearning:
     gnb = MultinomialNB()
     def __init__(self, predict):
         self.predict = predict
-    def learn:
+    def learn():
         mydata = pd.read_csv("training.csv")
         predict = pd.read_csv(predict)
         training = mydata["Training"]
