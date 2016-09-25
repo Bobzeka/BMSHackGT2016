@@ -19,11 +19,13 @@ for subreddit in subreddits:
     data = data['data']['children']
 
     for post in data:
+        print post
         if 'selftext' in post:
             text = [post['selftext'], '1']
         elif 'title' in post:
             text = [post['title'], '1']
         if text:
+            print text
             wrt.writerows(text)
 
 

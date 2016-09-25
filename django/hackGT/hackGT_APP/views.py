@@ -7,6 +7,7 @@ import os
 import tweepy
 import inspect
 import sys
+from training import machineLearning
 
 print sys.stdout.encoding
 
@@ -59,5 +60,7 @@ def maps(request):
 
     myStream.filter(track=['Rihanna'], async=False)
 
-    return HttpResponse("testing")
+    machineLearning.learn()
+    indices = machineLearning.predict("PLACEHOLDER")
 
+    return HttpResponse("testing")
