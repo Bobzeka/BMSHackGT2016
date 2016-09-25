@@ -5,6 +5,7 @@ html, body {
   margin: 0;
   padding: 0;
   background-color: black;
+background-image: "background1.jpg";
   z-index: 1;
 }
 
@@ -20,11 +21,11 @@ html, body {
 #title {
   position: absolute;
   width: 100vw;
-  top: 8vh;
+  top: 20vh;
   text-align: center;
   font-size: 15vh;
   font-family: 'Lato', 'sans-serif';
-  color: white;
+  color: black;
   z-index: 1;
 }
 
