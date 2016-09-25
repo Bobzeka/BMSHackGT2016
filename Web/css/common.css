@@ -1,18 +1,67 @@
 html, body {
   height: 100%;
+  width: auto;
+    overflow-y: hidden;
   margin: 0;
   padding: 0;
   background-color: black;
+background-image: "background1.jpg";
+  z-index: 1;
 }
+
+.first {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: black;
+  z-index: 1;
+}
+
 
 #title {
   position: absolute;
   width: 100vw;
-  top: 8vh;
+  top: 20vh;
   text-align: center;
   font-size: 15vh;
   font-family: 'Lato', 'sans-serif';
-  color: white;
+  color: black;
+  z-index: 1;
+}
+
+#round {
+  color: #4885ed;
+  border-radius: 999em;
+  top: 102vh;
+  left: calc(50vw - 7.5vh);
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  padding: 1vh 2vw;
+  line-height: 1;
+  font-size: 36px;
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+}
+
+#image{
+    position: static;
+}
+
+#up {
+  position: absolute;
+  color: #4885ed;
+  left: calc(52vw - 7.5vh);
+  font-size:4em;
+  
+  width: 75px;
+  height: 75px;
+  border-radius: 100%;
+  text-align: center;
+  background-color: white;
+  top: 102vh;
+  font-family: 'Roboto','sans-serif';
+  align-content: center;
+  z-index: 5;
 }
 
 #button {
@@ -23,22 +72,40 @@ html, body {
   padding: 1vh 2vw;
   border-radius: .4vh;
   background-color: #4885ed;
-  bottom: 10vh;
+  bottom: 30vh;
   font-family: 'Roboto','sans-serif';
+    z-index: 1;
 }
+
+
+#floating-panel {
+  position: absolute;
+  top: 10px;
+  left: 25%;
+  z-index: 5;
+  background-color: #fff;
+  padding: 5px;
+  border: 1px solid #999;
+  text-align: center;
+  font-family: 'Roboto','sans-serif';
+  line-height: 30px;
+  padding-left: 10px;
+}
+
 
 #map {
   position: absolute;
   top: 100vh;
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
+  z-index: 2;
 }
 
 #floating-panel {
   position: absolute;
   left: 25vw;
   width: 50vw;
-  z-index: 5;
+  z-index: 2;
   text-align: center;
   font-family: 'Roboto','sans-serif';
   line-height: 30px;
@@ -48,5 +115,5 @@ html, body {
   top: 100vh;
   left: 25%;
   position: absolute;
-  z-index: 5;
+  z-index: 2;
 }

@@ -2,23 +2,120 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>We Need a Name Guys</title>
+    <title>Anitdote</title>
     <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/common.css">
   </head>
 
-  <body>
-    <div id="title">We Need a Name Guys</div>
-    <div id="button">MAP</div>
+  <body background = "background1.jpg">
+      
+    
+    <div id = 'FirstPage'>
+    <div id="title">Antidote</div>
+    <div id = "button" onclick="smoothScroll(document.getElementById('map'))"> MAP</div>
+    
+    
+    </div>      
+          
+<!--
     <div id="floating-panel">
       <button onclick="toggleHeatmap()">Toggle Heatmap</button>
       <button onclick="changeGradient()">Change gradient</button>
       <button onclick="changeRadius()">Change radius</button>
       <button onclick="changeOpacity()">Change opacity</button>
     </div>
+-->
+    <div id = "up" onclick="smoothScroll(document.getElementById('FirstPage'))"><img id = "image" src="UpArrow.png"></div>
+    <!--<div id="Floating-panel" onclick="smoothScroll(document.getElementById('FirstPage'))">GO UP</div> --> 
     <div id="map"></div>
-    <script>
+    
+      
+      
+      <script>
 
+         window.smoothScroll = function(target) {
+            var scrollContainer = target;
+            do { //find scroll container
+                scrollContainer = scrollContainer.parentNode;
+                if (!scrollContainer) return;
+                scrollContainer.scrollTop += 1;
+            } while (scrollContainer.scrollTop == 0);
+
+            var targetY = 0;
+            do { //find the top of target relatively to the container
+                if (target == scrollContainer) break;
+                targetY += target.offsetTop;
+            } while (target = target.offsetParent);
+
+            scroll = function(c, a, b, i) {
+                i++; if (i > 30) return;
+                c.scrollTop = a + (b - a) / 30 * i;
+                setTimeout(function(){ scroll(c, a, b, i); }, 20);
+            }
+            // start scrolling
+            scroll(scrollContainer, scrollContainer.scrollTop, targetY, 0);
+        }
+          
+//         function initMap() {
+//        var myLatLng = {lat: -25.363, lng: 131.044};
+//
+//        var map = new google.maps.Map(document.getElementById('map'), {
+//          zoom: 4,
+//          center: myLatLng
+//        });
+//
+//        var marker = new google.maps.Marker({
+//          position: myLatLng,
+//          map: map,
+//          title: 'Hello World!'
+//        });
+//      }
+         
+//         
+//      var map;
+//      var infowindow;
+//
+//      function initMap() {
+//        var pyrmont = {lat: 33.775310, lng: -84.392781};
+//          //33.775310, -84.392781
+//
+//        map = new google.maps.Map(document.getElementById("map"), {
+//          center: pyrmont,
+//          zoom: 15
+//        });
+//          
+//          var request = {
+//          location: pyrmont,
+//          radius: 1000,
+//          type: ['hospital']
+//        };
+//
+//        infowindow = new google.maps.InfoWindow();
+//        var service = new google.maps.places.PlacesService(map);
+//        service.nearbySearch(request, callback);
+//      }
+//
+//      function callback(results, status) {
+//        if (status === google.maps.places.PlacesServiceStatus.OK) {
+//          for (var i = 0; i < results.length; i++) {
+//            createMarker(results[i]);
+//          }
+//        }
+//      }
+//
+//      function createMarker(place) {
+//        var placeLoc = place.geometry.location;
+//        var marker = new google.maps.Marker({
+//          map: map,
+//          position: place.geometry.location
+//        });
+//
+//        google.maps.event.addListener(marker, 'click', function() {
+//          infowindow.setContent(place.name);
+//          infowindow.open(map, this);
+//        });
+//      }
+          
       // This example requires the Visualization library. Include the libraries=visualization
       // parameter when you first load the API. For example:
       // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=visualization">
@@ -61,6 +158,8 @@
         ]
         heatmap.set('gradient', heatmap.get('gradient') ? null : gradient);
       }
+   
+        
 
       function changeRadius() {
         heatmap.set('radius', heatmap.get('radius') ? null : 20);
@@ -575,9 +674,10 @@
           new google.maps.LatLng(37.751266, -122.403355)
         ];
       }
+          //https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places
     </script>
     <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAfL0tKyIlIKSHWa8il9vJDjE5p660v0bA&libraries=visualization&callback=initMap">
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAfL0tKyIlIKSHWa8il9vJDjE5p660v0bA&libraries=visualization,places&callback=initMap">
     </script>
   </body>
 </html>
