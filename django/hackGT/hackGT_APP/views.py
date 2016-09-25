@@ -8,6 +8,7 @@ import tweepy
 import inspect
 import sys
 from training import machineLearning
+import csv
 
 print sys.stdout.encoding
 
@@ -27,40 +28,20 @@ def oauth_req(url, http_method="GET", post_body="", http_headers=None):
     esp, content = client.request( url, method=http_method, body=post_body, headers=http_headers )
     return content
 
-class MyStreamListener(tweepy.StreamListener):
-    test = True
-    n = 0
-    def on_status(self, status):
-        self.n = self.n + 1
-        print self.n
-        print status
-        if 'coordinates' in status._json and status._json['coordinates'] != None:
-            print status._json['coordinates']
-        if status.coordinates:
-            print status.coordinates
-        #if 'coordinates' in status.author and status.author['coordinates'] != None:
-        #    print status.author['coordinates']
-        #if self.test:
-            #print status
-            #for property, value in vars(status).iteritems():
-            #    print property, ": ", value
-        self.test = False
-
-
-
 
 def maps(request):
-    auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
-    auth.set_access_token(ACCESS_TOKEN, ACCESS_SECRET)
+    f = open('data.csv', 'w')
+    csvwriter = csv.writer(f)
+    csvwriter.writerow(['Testing'])
 
-    api = tweepy.API(auth)
+    req = oauth_req('https://api.twitter.com/1.1/search/tweets.json?q=drugs&count=1&lang=en')
+    data = json.loads(req)
+    tweets = data['statuses']
 
-    myStreamListener = MyStreamListener()
-    myStream = tweepy.Stream(auth=api.auth, listener=MyStreamListener())
-
-    myStream.filter(track=['Rihanna'], async=False)
-
-    machineLearning.learn()
-    indices = machineLearning.predict("PLACEHOLDER")
-
+    for tweet in tweets:
+        csvwriter.writerow([tweet['text']])
+    f.close()
+    
+    learner = machineLearning.machineLearning()
+    indices = learner.predict("data.csv")
     return HttpResponse("testing")
