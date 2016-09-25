@@ -3,7 +3,6 @@ awsebcli==3.7.7
 bcrypt==2.0.0
 bdist-mpkg==0.5.0
 blessed==1.9.5
-bonjour-py==0.3
 botocore==1.4.37
 cement==2.8.2
 cffi==1.6.0

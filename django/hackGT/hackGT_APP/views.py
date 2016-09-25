@@ -6,11 +6,14 @@ import oauth2
 import os
 import tweepy
 import inspect
+import sys
 
-CONSUMER_KEY = os.environ['CONSUMER_KEY']
-CONSUMER_SECRET = os.environ['CONSUMER_SECRET']
-ACCESS_TOKEN = os.environ['ACCESS_TOKEN']
-ACCESS_SECRET = os.environ['ACCESS_SECRET']
+print sys.stdout.encoding
+
+CONSUMER_KEY = '6fqay2JAArGppgiVh5Kv8jUB9'
+CONSUMER_SECRET = 'Hzuo4P3G5JBNFytAqvCPxcQomJ74VqIGAXOLrGjIla1GhbBk5A'
+ACCESS_TOKEN = '779599701691760640-vHT54xE5aY21viNAYWpfqxvkrs89pUT'
+ACCESS_SECRET = 'atZ8dx9C81wqh1Ht9TFXPaThYsyUoanlayXoNP0J0McCF'
 
 stream_created = False
 
@@ -25,6 +28,14 @@ class MyStreamListener(tweepy.StreamListener):
     def on_status(self, status):
         for property, value in vars(status).iteritems():
             print property, ": ", value
+            print "\n-----------------------------------------------------"
+            print "\n-----------------------------------------------------"
+            print "\n-----------------------------------------------------"
+            print "\n---" + property + "---"
+            print "\n-----------------------------------------------------"
+            print "\n-----------------------------------------------------"
+            print "\n-----------------------------------------------------"
+
 
 
 
@@ -37,7 +48,7 @@ def maps(request):
     myStreamListener = MyStreamListener()
     myStream = tweepy.Stream(auth = api.auth, listener=MyStreamListener())
 
-    myStream.filter(track=['drugs', 'twisted', 'dope'], async=True)
+    myStream.filter(track=['This is dope'], async=True)
 
     return HttpResponse("testing")
 

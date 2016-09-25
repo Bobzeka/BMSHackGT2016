@@ -1,0 +1,8 @@
+Performing system checks...
+
+None
+System check identified no issues (0 silenced).
+September 24, 2016 - 16:20:03
+Django version 1.9.6, using settings 'hackGT.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
