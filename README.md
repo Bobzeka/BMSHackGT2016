@@ -24,5 +24,7 @@ to the tweet location issue.
 ## Tools
 
 Languages: Python, HTML/CSS, JavaScript
+
 APIs: Twitter, Google Heatmap
+
 Libraries: SKLearn
