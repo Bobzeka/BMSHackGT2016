@@ -21,6 +21,7 @@ due to the limitations of the free API key, this turned out to be entirely impos
 here contains a front end that includes only sample location data from Google Heatmap API's tutorial due
 to the tweet location issue.
 
+## Tools
 
 Languages: Python, HTML/CSS, JavaScript
 APIs: Twitter, Google Heatmap
